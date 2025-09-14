@@ -1,0 +1,209 @@
+# MCBench Pro 语言文件 - 简体中文
+
+# 命令消息
+command:
+  noPermission: "&c你没有权限使用该命令。&r"
+  consoleOnly: "&c出于安全考虑，此命令只能在控制台执行。&r"
+  invalidSyntax: "&c语法错误。用法：/mcbench <start|stop|help|confirm|cancel> [profile] [safe]&r"
+  unknownProfile: "&c未知的配置：%profile%。可用配置：minimum、normal、extreme&r"
+  benchmarkRunning: "&c基准测试已在运行。使用 /mcbench stop 终止。&r"
+  noBenchmarkRunning: "&c当前没有正在运行的基准测试。&r"
+  confirmationPending: "&c已有一个基准测试等待确认。&r"
+  bypassHint: "&e如果了解风险，可使用 '--bypass' 参数忽略内存要求&r"
+  bypassWarning: "&c&l警告：正在绕过内存要求，请谨慎操作&r"
+  help:
+    header: "&a&l=== MCBench Pro 帮助 ==="
+    start: "&e/mcbench start <profile> [safe] [--bypass] &7- 启动基准测试"
+    stop: "&e/mcbench stop &7- 停止正在运行的基准测试"
+    confirm: "&e/mcbench confirm &7- 确认开始测试"
+    cancel: "&e/mcbench cancel &7- 取消待确认的测试"
+    check: "&e/mcbench check &7- 运行系统诊断"
+    reload: "&e/mcbench reload &7- 重新加载配置与语言"
+    profiles: "&7配置：minimum、normal、extreme"
+    safeMode: "&7添加 'safe' 可在测试期间踢出玩家并阻止加入"
+    bypass: "&7使用 '--bypass' 可跳过内存检查（仅限控制台）"
+
+# 启动警告
+start:
+  warning: "&c&l⚠ 警告 ⚠&r"
+  warningDetails: "&c运行 MCBench Pro 可能会导致暂时的服务器不稳定和性能下降。&r"
+  warningResponsibility: "&c插件作者不对任何游戏文件、世界状态或玩家数据的损坏承担任何责任。&r"
+  warningProfile: "&7配置：&e%profile%&r"
+  warningMode: "&7模式：&e%mode%&r"
+  warningConfirm: "&e请在 60 秒内执行 '/mcbench confirm' 继续，或使用 '/mcbench cancel' 取消。&r"
+
+# 控制台警告（纯文本控制台输出）
+console:
+  warning: "⚠ 警告 ⚠"
+  warningDetails: "运行 MCBench Pro 可能会导致暂时的服务器不稳定和性能下降。"
+  warningResponsibility: "插件作者不对任何游戏文件、世界状态或玩家数据的损坏承担任何责任。"
+  warningProfile: "配置：%profile%"
+  warningMode: "模式：%mode%"
+  warningConfirm: "请在 60 秒内执行 '/mcbench confirm' 继续，或使用 '/mcbench cancel' 取消。"
+  confirmationAccepted: "确认已接受。即将开始基准测试..."
+
+# 按配置的内存警告
+ramWarning:
+  minimum: "&c&l内存警告：此配置需要 %required%，但 JVM 最大仅有 %current%。最低配置建议至少 1GB。&r"
+  normal: "&c&l内存警告：此配置需要 %required%，但 JVM 最大仅有 %current%。常规配置建议至少 4GB。&r"
+  extreme: "&c&l内存警告：此配置需要 %required%，但 JVM 最大仅有 %current%。极限配置建议至少 10GB 以防崩溃。&r"
+
+saveAll:
+  executing: "&7在测试前执行 save-all...&r"
+  completed: "&aSave-all 成功完成&r"
+
+confirm:
+  success: "&a已确认，3 秒后开始...&r"
+  expired: "&c确认已过期。测试已取消。&r"
+  ramInsufficient: "&c&l内存不足：此配置需要 %required% MB，但 JVM 最大仅有 %current% MB&r"
+  ramWarning: "&c&l警告：内存不足运行可能导致服务器崩溃或数据损坏！&r"
+  ramBypass: "&e若了解风险，可使用 '/mcbench confirm --bypass'&r"
+  bypassUsed: "&c&l已绕过：管理员忽略了内存要求——请谨慎进行&r"
+  bypassLogged: "&7绕过操作已记录到 runs.log&r"
+
+cancel:
+  success: "&a已取消基准测试。&r"
+
+stop:
+  success: "&a已停止基准测试。正在生成摘要...&r"
+
+diagnostics:
+  starting: "&7开始全面诊断扫描...&r"
+
+# 检查命令
+check:
+  running: "&a正在运行服务器诊断...&r"
+  header: "&a&l=== 服务器诊断报告 ===&r"
+  timestamp: "&7扫描时间：&e%timestamp%&r"
+  jvmInfo: "&a&l--- JVM 内存信息 ---"
+  jvmMax: "&7JVM 最大内存：&e%max% MB"
+  jvmUsed: "&7JVM 已用内存：&e%used% MB"
+  jvmMin: "&7JVM 最小/初始分配：&e%min% MB"
+  worldInfo: "&a&l--- 世界统计 ---"
+  loadedChunks: "&7已加载区块总数：&e%total%"
+  worldChunks: "&7  %world%：&e%chunks% 区块"
+  entityInfo: "&a&l--- 实体分析 ---"
+  totalEntities: "&7实体总数：&e%total%"
+  droppedItems: "&7掉落物：&e%items%"
+  hotspots: "&a&l--- 性能热点 ---"
+  hotspotChunk: "&7区块 [%world%] %x%,%z%：&c%count% %type%"
+  noHotspots: "&7未检测到明显性能热点"
+  recommendations: "&a&l--- 建议 ---"
+  ramUpgrade: "&7• 考虑升级内存（当前：%current% MB，建议：4GB+）"
+  entityCleanup: "&7• 安装实体清理类插件（Clearlagg、ServerBoost、Lagfixer、LagAssist、CMI）"
+  chunkReduction: "&7• 降低视距以减少加载区块"
+  hotspotCleanup: "&7• 前往列出的坐标清理热点实体"
+  allGood: "&7• 服务器配置看起来良好"
+  export: "&a完整诊断报告已保存到：&e%file%"
+
+# 基准测试消息
+benchmark:
+  starting: "&a正在启动 MCBench Pro 基准测试...&r"
+  safeModeKick: "MCBench Pro — 正在进行基准测试"
+  workloadStarted: "&e负载阶段已开始。配置：%profile%&r"
+  workloadCompleted: "&a负载阶段完成。开始恢复测量...&r"
+  recoveryCompleted: "&a恢复完成。正在生成最终报告...&r"
+  emergencyAbort: "&c&l紧急中止：MSPT 超过 %threshold%ms 持续 %duration% 秒&r"
+  timeoutAbort: "&c&l超时中止：测试超过 %timeout% 秒&r"
+  saveAll:
+    executing: "&7在测试前执行 save-all...&r"
+    completed: "&aSave-all 成功完成&r"
+  status:
+    header: "&a&l=== 服务器状态 ==="
+    os: "&7操作系统：&e%os%"
+    cpu: "&7CPU：&e%cpu%"
+    ram: "&7内存：&e%used%/%max%"
+    serverLoader: "&7服务端内核：&e%loader%"
+    version: "&7版本：&e%version%"
+    viaversion: "&7ViaVersion：&e%viaversion%"
+    countdown: "&7确认将于：&c%seconds% 秒后过期"
+  progress:
+    inLoad: "&7负载中：TPS %tps% | MSPT %mspt%ms | 内存 %ram%% | CPU %cpu%%"
+    progressUpdate: "&7进度：%elapsed%/%total% 秒（%percentage%%）- TPS：%tps%"
+
+# 报告消息
+report:
+  header: "&a&l=== MCBench Pro 结果 ==="
+  profile: "&7配置：&e%profile%"
+  mode: "&7模式：&e%mode%"
+  duration: "&7时长：&e%duration% 秒"
+  baseline:
+    header: "&7&l--- 基线指标 ---"
+    tps: "&7TPS：&e%tps%"
+    mspt: "&7MSPT：&e%mspt%ms"
+    cpu: "&7CPU：&e%cpu%%"
+    ram: "&7内存：&e%ram%%"
+  afterload:
+    header: "&7&l--- 负载后指标 ---"
+    tps: "&7TPS：&e%tps%"
+    mspt: "&7MSPT：&e%mspt%ms"
+    cpu: "&7CPU：&e%cpu%%"
+    ram: "&7内存：&e%ram%%"
+  recovery:
+    time: "&7恢复时间：&e%time%"
+    score: "&7最终得分：&e%score%"
+    bonus: "&7内存加成：&f%bonus% &7（来自 %jvmMb% MB * 1.75）"
+    scoreBreakdown: "&a&l--- 计分明细 ---"
+    profilePoints: "&7配置基础分：&e%points%"
+    recoverySeconds: "&7恢复秒数：&e%seconds%"
+    penaltyPerSecond: "&7每秒惩罚：&e%penalty%"
+    timePenalty: "&7时间惩罚：&e%totalPenalty%"
+    jvmMb: "&7JVM 最大内存：&e%jvmMb% MB"
+    jvmBonus: "&7JVM 内存加成：&e%bonus%"
+    formula: "&7公式：max(0, %base% - %timePen%) + %jvmBon% = %final%"
+    benchmarkPoint: "&7基准点：&e%point% &7（类似 CineBench）"
+    bypassNote: "&c&l已绕过：本次运行使用了内存绕过，结果可能不可靠"
+  system:
+    header: "&7&l--- 系统信息 ---"
+    java: "&7Java：&e%java%"
+    minecraft: "&7Minecraft：&e%minecraft%"
+    jvmRam: "&7JVM 内存：&e%jvm%"
+    hardware: "&7硬件：&e%hardware%"
+  analysis:
+    header: "&7&l--- 区块与实体分析 ---"
+    chunks: "&7已加载区块：&e%chunks%"
+    entities: "&7实体总数：&e%entities%"
+    topChunks: "&7实体密集区块："
+  recommendations:
+    header: "&7&l--- 调优建议 ---"
+    viewDistance: "&7• 可考虑将视距降低到 %value%"
+    simulationDistance: "&7• 可考虑将模拟距离降低到 %value%"
+    entityCleanup: "&7• 启用实体清理相关插件或设置"
+    mobSpawn: "&7• 在 server.properties 中降低生物生成率"
+    plugins: "&7• 检查插件性能并禁用不必要的插件"
+    ram: "&7• 考虑增加服务器内存分配"
+    cpu: "&7• 考虑升级服务器 CPU"
+    noRecommendations: "&7• 服务器性能良好，无需调整"
+  export:
+    success: "&a报告已导出：&e%file%"
+    error: "&c报告导出失败：%error%"
+
+# 错误消息
+error:
+  platformIncompatible: "&cMCBench Pro 需要 Paper/Pufferfish 1.21+ 和 Java 21+"
+  javaVersion: "&c需要 Java 21+。当前：%version%"
+  minecraftVersion: "&c需要 Minecraft 1.21+。当前：%version%"
+  configLoad: "&c加载配置失败：%error%"
+  metricsUnavailable: "&c无法收集系统指标：%error%"
+  workloadError: "&c负载执行错误：%error%"
+  unexpectedError: "&c未知错误：%error%"
+  invalidBypass: "&c--bypass 参数只能与 /mcbench confirm 一起使用"
+  saveAllFailed: "&c执行 save-all 失败：%error%"
+  diagnosticsFailed: "&c诊断扫描失败：%error%"
+
+# 运行日志（runs.log）
+logging:
+  runStarted: "Benchmark 运行开始"
+  runCancelled: "Benchmark 已取消"
+  runAborted: "Benchmark 已中止"
+  runTimeout: "Benchmark 已超时"
+  runCompleted: "Benchmark 已完成"
+  bypassUsed: "已绕过内存要求"
+  saveAllExecuted: "已执行 save-all 命令"
+
+# 系统
+system:
+  enabled: "&aMCBench Pro v%version% 已启用&r"
+  disabled: "&aMCBench Pro 已禁用&r"
+  reloaded: "&a配置已重新加载&r"
+  platformCheck: "&a兼容性检查通过：Paper %paper%，Java %java%&r"

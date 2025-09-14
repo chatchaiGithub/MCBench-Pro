@@ -1,0 +1,140 @@
+# MCBench Pro Configuration
+# Professional-grade server benchmark plugin
+
+# General Settings
+settings:
+  # Language configuration
+  # Available: en-US, th-TH, cn-CN
+  language: en-US
+  # Global timeout for entire benchmark process (workload + recovery) in seconds
+  globalTimeoutSeconds: 300
+  
+  # Auto save-all before benchmark starts (recommended for accurate results)
+  enableAutoSaveAll: true
+  
+  # Auto-run diagnostics before starting benchmark
+  enableDiagnosticsOnStart: true
+  
+  # Emergency abort thresholds
+  emergency:
+    # If MSPT exceeds this value for emergencyDurationSeconds, abort benchmark
+    msptThreshold: 1000.0
+    durationSeconds: 10
+  
+  # Result export settings
+  export:
+    enableResultFile: true
+    resultFileFormat: "txt" # txt, json, yaml
+  
+  # Safe mode settings (when 'safe' argument is used)
+  safeMode:
+    kickMessage: "MCBench Pro — server benchmarking in progress"
+    clearInventories: false  # Changed to false - only kick players, don't clear items
+    clearDroppedItems: true
+    performWorldCleanup: false
+
+# New Scoring System
+# Formula: finalScore = Math.max(0, profileBasePoints - timePenalty) + jvmRamBonus
+# Where: timePenalty = recoverySeconds * penaltyPerSecond
+#        jvmRamBonus = jvmMb * jvmPointsPerMB
+scoring:
+  # Points per MB of JVM max memory (default 1.75 points per MB)
+  jvmPointsPerMB: 1.75
+  
+  # Recovery criteria: TPS >= 19.9 AND MSPT <= 25
+  recovery:
+    targetTps: 19.9
+    targetMspt: 25.0
+
+# Minimum JVM RAM requirements per profile (in MB)
+# Benchmark will warn/require bypass if current JVM max memory is below these values
+minimumRamPerProfile:
+  minimum: 1024   # > 1 GB
+  normal: 4096    # > 4 GB  
+  extreme: 10240  # > 10 GB
+
+# Diagnostic Thresholds for /mcbench check command
+diagnostics:
+  thresholds:
+    # Chunk and entity limits
+    loadedChunksWarning: 200
+    droppedItemsWarning: 30
+    totalEntitiesWarning: 120
+    minRamForHighEntities: 4096  # MB
+    
+    # Per-chunk entity type limits (hotspot detection)
+    perChunk:
+      itemFrames: 15
+      glowItemFrames: 15
+      armorStands: 5
+
+# MaxPlayer recommendations based on JVM RAM
+playerRecommendations:
+  ramToPlayerMapping:
+    4096: "6-7"      # < 4GB
+    6144: "10-12"    # 6GB
+    8192: "15"       # 8GB
+    12288: "18-20"   # 12GB
+    16384: "28"      # 16GB
+    20480: "40"      # 20GB
+  
+  # Warning for high player counts
+  foliaRecommendationThreshold: 70
+
+# Benchmark Profiles
+# Each profile defines: durationSeconds, intensityMultiplier, tickInterval, loopCountPerTick
+# Plus scoring parameters: profileBasePoints, penaltyPerSecond
+profiles:
+  minimum:
+    # 1-minute workload, 50% intensity, designed for small VPS (<=2 cores / <=4 threads)
+    durationSeconds: 60
+    intensityMultiplier: 0.5
+    tickInterval: 1
+    loopCountPerTick: 500000
+    emergencyMsptThreshold: 800.0
+    
+    # Scoring parameters
+    profileBasePoints: 15000
+    penaltyPerSecond: 200
+    
+  normal:
+    # 2-minute workload, full intensity, for mid-range servers
+    durationSeconds: 120
+    intensityMultiplier: 1.0
+    tickInterval: 1
+    loopCountPerTick: 1000000
+    emergencyMsptThreshold: 1000.0
+    
+    # Scoring parameters
+    profileBasePoints: 30000
+    penaltyPerSecond: 150
+    
+  extreme:
+    # 3-minute workload, max intensity, for high-end servers
+    durationSeconds: 180
+    intensityMultiplier: 2.0
+    tickInterval: 1
+    loopCountPerTick: 2000000
+    emergencyMsptThreshold: 1200.0
+    
+    # Scoring parameters
+    profileBasePoints: 60000
+    penaltyPerSecond: 100
+
+# Legacy recommendation thresholds (kept for compatibility)
+recommendations:
+  # Thresholds for generating recommendations
+  thresholds:
+    highEntityCount: 1000
+    highChunkCount: 500
+    lowTps: 18.0
+    highMspt: 30.0
+    highRamUsage: 80.0
+    highCpuUsage: 85.0
+
+# Legacy Benchmark Point Calculation (kept for compatibility)
+# New scoring system is defined above in 'scoring' section
+benchmarkPoint:
+  divisor: 50000.0
+  targetTps: 20.0
+  targetMspt: 25.0

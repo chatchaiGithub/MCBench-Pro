@@ -1,0 +1,205 @@
+# ไฟล์ภาษา MCBench Pro - ไทย
+
+# ข้อความคำสั่ง
+command:
+  noPermission: "&cคุณไม่มีสิทธิ์ใช้คำสั่งนี้&r"
+  consoleOnly: "&cด้วยเหตุผลด้านความปลอดภัย คำสั่งนี้ใช้ได้เฉพาะในคอนโซล&r"
+  invalidSyntax: "&cรูปแบบคำสั่งไม่ถูกต้อง ใช้: /mcbench <start|stop|help|confirm|cancel> [profile] [safe]&r"
+  unknownProfile: "&cไม่รู้จักโปรไฟล์: %profile% โปรไฟล์ที่มี: minimum, normal, extreme&r"
+  benchmarkRunning: "&cมีการทดสอบอยู่แล้ว ใช้ /mcbench stop เพื่อหยุด&r"
+  noBenchmarkRunning: "&cขณะนี้ไม่มีการทดสอบกำลังทำงาน&r"
+  confirmationPending: "&cมีคำขอยืนยันอยู่แล้ว&r"
+  bypassHint: "&eหากเข้าใจความเสี่ยง ใช้ '--bypass' เพื่อข้ามข้อกำหนด RAM&r"
+  bypassWarning: "&c&lคำเตือน: กำลังข้ามข้อกำหนด RAM โปรดระวัง&r"
+  help:
+    header: "&a&l=== วิธีใช้ MCBench Pro ==="
+    start: "&e/mcbench start <profile> [safe] [--bypass] &7- เริ่มทดสอบ"
+    stop: "&e/mcbench stop &7- หยุดการทดสอบที่กำลังรัน"
+    confirm: "&e/mcbench confirm &7- ยืนยันการเริ่มทดสอบ"
+    cancel: "&e/mcbench cancel &7- ยกเลิกคำขอยืนยัน"
+    check: "&e/mcbench check &7- รันการวินิจฉัยระบบ"
+    reload: "&e/mcbench reload &7- โหลดค่า config และภาษาใหม่"
+    profiles: "&7โปรไฟล์: minimum, normal, extreme"
+    safeMode: "&7ใส่ 'safe' เพื่อเตะผู้เล่นและบล็อคการเข้าในระหว่างทดสอบ"
+    bypass: "&7ใช้ '--bypass' เพื่อข้ามการตรวจ RAM (เฉพาะคอนโซล)"
+
+# คำเตือนเริ่มต้น
+start:
+  warning: "&c&l⚠ คำเตือน ⚠&r"
+  warningDetails: "&cการรัน MCBench Pro อาจทำให้เซิร์ฟเวอร์ไม่เสถียรและประสิทธิภาพลดลงชั่วคราว&r"
+  warningResponsibility: "&cผู้พัฒนาไม่รับผิดชอบต่อความเสียหายต่อไฟล์ เกม โลก หรือข้อมูลผู้เล่นใดๆ&r"
+  warningProfile: "&7โปรไฟล์: &e%profile%&r"
+  warningMode: "&7โหมด: &e%mode%&r"
+  warningConfirm: "&eพิมพ์ '/mcbench confirm' ภายใน 60 วินาทีเพื่อทำต่อ หรือ '/mcbench cancel' เพื่อยกเลิก&r"
+
+# คำเตือนคอนโซล (ข้อความธรรมดาสำหรับคอนโซล)
+console:
+  warning: "⚠ คำเตือน ⚠"
+  warningDetails: "การรัน MCBench Pro อาจทำให้เซิร์ฟเวอร์ไม่เสถียรและประสิทธิภาพลดลงชั่วคราว"
+  warningResponsibility: "ผู้พัฒนาปลั๊กอินไม่รับผิดชอบต่อความเสียหายใดๆ ต่อไฟล์เกม สถานะโลก หรือข้อมูลผู้เล่น"
+  warningProfile: "โปรไฟล์: %profile%"
+  warningMode: "โหมด: %mode%"
+  warningConfirm: "รัน '/mcbench confirm' ภายใน 60 วินาทีเพื่อทำต่อ หรือ '/mcbench cancel' เพื่อยกเลิก"
+  confirmationAccepted: "การยืนยันถูกรับแล้ว จะเริ่มการทดสอบในไม่ช้า..."
+
+# คำเตือน RAM ตามโปรไฟล์
+ramWarning:
+  minimum: "&c&lคำเตือน RAM: โปรไฟล์นี้ต้องการ %required% แต่ JVM สูงสุดมี %current% โปรไฟล์ Minimum แนะนำอย่างน้อย 1GB&r"
+  normal: "&c&lคำเตือน RAM: โปรไฟล์นี้ต้องการ %required% แต่ JVM สูงสุดมี %current% โปรไฟล์ Normal แนะนำอย่างน้อย 4GB&r"
+  extreme: "&c&lคำเตือน RAM: โปรไฟล์นี้ต้องการ %required% แต่ JVM สูงสุดมี %current% โปรไฟล์ Extreme แนะนำอย่างน้อย 10GB เพื่อป้องกันล่ม&r"
+
+saveAll:
+  executing: "&7กำลังรัน save-all ก่อนเริ่มทดสอบ...&r"
+  completed: "&aเสร็จสิ้น save-all&r"
+
+confirm:
+  success: "&aยืนยันแล้ว จะเริ่มใน 3 วินาที...&r"
+  expired: "&cการยืนยันหมดอายุ ยกเลิกการทดสอบแล้ว&r"
+  ramInsufficient: "&c&lRAM ไม่พอ: โปรไฟล์นี้ต้องการ %required% MB แต่ JVM สูงสุดมี %current% MB&r"
+  ramWarning: "&c&lคำเตือน: การรันด้วย RAM ไม่พออาจทำให้เซิร์ฟเวอร์ล่มหรือข้อมูลเสียหาย!&r"
+  ramBypass: "&eหากเข้าใจความเสี่ยง ใช้ '/mcbench confirm --bypass'&r"
+  bypassUsed: "&c&lข้ามข้อกำหนด: ผู้ดูแลระบบข้ามข้อกำหนด RAM — โปรดระวัง&r"
+  bypassLogged: "&7บันทึกการข้ามไว้ใน runs.log แล้ว&r"
+
+cancel:
+  success: "&aยกเลิกการทดสอบแล้ว&r"
+
+stop:
+  success: "&aหยุดการทดสอบแล้ว กำลังสร้างสรุป...&r"
+
+diagnostics:
+  starting: "&7เริ่มการสแกนวินิจฉัยแบบละเอียด...&r"
+
+check:
+  running: "&aกำลังรันการวินิจฉัยเซิร์ฟเวอร์...&r"
+  header: "&a&l=== รายงานการวินิจฉัยเซิร์ฟเวอร์ ===&r"
+  timestamp: "&7เวลาสแกน: &e%timestamp%&r"
+  jvmInfo: "&a&l--- ข้อมูลหน่วยความจำ JVM ---"
+  jvmMax: "&7JVM หน่วยความจำสูงสุด: &e%max% MB"
+  jvmUsed: "&7JVM หน่วยความจำที่ใช้: &e%used% MB"
+  jvmMin: "&7JVM ขั้นต่ำ/เริ่มต้น: &e%min% MB"
+  worldInfo: "&a&l--- สถิติโลก ---"
+  loadedChunks: "&7ชังก์ที่โหลดทั้งหมด: &e%total%"
+  worldChunks: "&7  %world%: &e%chunks% ชังก์"
+  entityInfo: "&a&l--- วิเคราะห์เอนทิตี ---"
+  totalEntities: "&7จำนวนเอนทิตีทั้งหมด: &e%total%"
+  droppedItems: "&7ไอเท็มตกพื้น: &e%items%"
+  hotspots: "&a&l--- จุดร้อนด้านประสิทธิภาพ ---"
+  hotspotChunk: "&7ชังก์ [%world%] %x%,%z%: &c%count% %type%"
+  noHotspots: "&7ไม่พบจุดร้อนที่ชัดเจน"
+  recommendations: "&a&l--- ข้อเสนอแนะ ---"
+  ramUpgrade: "&7• พิจารณาเพิ่ม RAM (ปัจจุบัน: %current% MB, แนะนำ: 4GB+)"
+  entityCleanup: "&7• ใช้ปลั๊กอินลบเอนทิตี/ไอเท็ม (Clearlagg, ServerBoost, Lagfixer, LagAssist, CMI)"
+  chunkReduction: "&7• ลดชังก์ที่โหลดโดยปรับ view-distance ให้ต่ำลง"
+  hotspotCleanup: "&7• เดินทางไปพิกัดเพื่อทำความสะอาดจุดร้อน"
+  allGood: "&7• การตั้งค่าเซิร์ฟเวอร์ดูดีอยู่แล้ว"
+  export: "&aบันทึกรายงานวินิจฉัยไปยัง: &e%file%"
+
+benchmark:
+  starting: "&aกำลังเริ่มการทดสอบ MCBench Pro...&r"
+  safeModeKick: "MCBench Pro — กำลังทดสอบเซิร์ฟเวอร์"
+  workloadStarted: "&eเริ่มช่วงโหลดงานแล้ว โปรไฟล์: %profile%&r"
+  workloadCompleted: "&aช่วงโหลดงานเสร็จสิ้น เริ่มวัดการฟื้นตัว...&r"
+  recoveryCompleted: "&aฟื้นตัวเสร็จสิ้น กำลังสร้างรายงาน...&r"
+  emergencyAbort: "&c&lยุติฉุกเฉิน: MSPT เกิน %threshold%ms เป็นเวลา %duration% วินาที&r"
+  timeoutAbort: "&c&lหมดเวลา: การทดสอบเกิน %timeout% วินาที&r"
+  saveAll:
+    executing: "&7กำลังรัน save-all ก่อนเริ่มทดสอบ...&r"
+    completed: "&aเสร็จสิ้น save-all&r"
+  status:
+    header: "&a&l=== สถานะเซิร์ฟเวอร์ ==="
+    os: "&7ระบบปฏิบัติการ: &e%os%"
+    cpu: "&7CPU: &e%cpu%"
+    ram: "&7RAM: &e%used%/%max%"
+    serverLoader: "&7แกนเซิร์ฟเวอร์: &e%loader%"
+    version: "&7เวอร์ชัน: &e%version%"
+    viaversion: "&7ViaVersion: &e%viaversion%"
+    countdown: "&7การยืนยันจะหมดอายุใน: &c%seconds% วินาที"
+  progress:
+    inLoad: "&7ระหว่างโหลด: TPS %tps% | MSPT %mspt%ms | RAM %ram%% | CPU %cpu%%"
+    progressUpdate: "&7ความคืบหน้า: %elapsed%/%total% วินาที (%percentage%%) - TPS: %tps%"
+
+report:
+  header: "&a&l=== ผลลัพธ์ MCBench Pro ==="
+  profile: "&7โปรไฟล์: &e%profile%"
+  mode: "&7โหมด: &e%mode%"
+  duration: "&7ระยะเวลา: &e%duration% วินาที"
+  baseline:
+    header: "&7&l--- ค่าเริ่มต้น ---"
+    tps: "&7TPS: &e%tps%"
+    mspt: "&7MSPT: &e%mspt%ms"
+    cpu: "&7CPU: &e%cpu%%"
+    ram: "&7RAM: &e%ram%%"
+  afterload:
+    header: "&7&l--- หลังโหลด ---"
+    tps: "&7TPS: &e%tps%"
+    mspt: "&7MSPT: &e%mspt%ms"
+    cpu: "&7CPU: &e%cpu%%"
+    ram: "&7RAM: &e%ram%%"
+  recovery:
+    time: "&7เวลาในการฟื้นตัว: &e%time%"
+    score: "&7คะแนนสุดท้าย: &e%score%"
+    bonus: "&7โบนัส RAM: &f%bonus% &7(จาก %jvmMb% MB * 1.75)"
+    scoreBreakdown: "&a&l--- รายละเอียดการให้คะแนน ---"
+    profilePoints: "&7คะแนนฐานโปรไฟล์: &e%points%"
+    recoverySeconds: "&7วินาทีที่ใช้ฟื้นตัว: &e%seconds%"
+    penaltyPerSecond: "&7โทษต่อวินาที: &e%penalty%"
+    timePenalty: "&7โทษด้านเวลา: &e%totalPenalty%"
+    jvmMb: "&7JVM หน่วยความจำสูงสุด: &e%jvmMb% MB"
+    jvmBonus: "&7โบนัสหน่วยความจำ JVM: &e%bonus%"
+    formula: "&7สูตร: max(0, %base% - %timePen%) + %jvmBon% = %final%"
+    benchmarkPoint: "&7คะแนน Benchmark: &e%point% &7(สไตล์ CineBench)"
+    bypassNote: "&c&lมีการข้าม RAM: ผลลัพธ์อาจคลาดเคลื่อน"
+  system:
+    header: "&7&l--- ข้อมูลระบบ ---"
+    java: "&7Java: &e%java%"
+    minecraft: "&7Minecraft: &e%minecraft%"
+    jvmRam: "&7JVM RAM: &e%jvm%"
+    hardware: "&7ฮาร์ดแวร์: &e%hardware%"
+  analysis:
+    header: "&7&l--- วิเคราะห์ชังก์และเอนทิตี ---"
+    chunks: "&7ชังก์ที่โหลด: &e%chunks%"
+    entities: "&7เอนทิตีทั้งหมด: &e%entities%"
+    topChunks: "&7ชังก์ที่หนาแน่นด้วยเอนทิตี:"
+  recommendations:
+    header: "&7&l--- คำแนะนำการปรับแต่ง ---"
+    viewDistance: "&7• พิจารณาลด view-distance เป็น %value%"
+    simulationDistance: "&7• พิจารณาลด simulation-distance เป็น %value%"
+    entityCleanup: "&7• เปิดใช้ปลั๊กอิน/การตั้งค่าลบเอนทิตี"
+    mobSpawn: "&7• ลดอัตราการเกิดม็อบใน server.properties"
+    plugins: "&7• ตรวจสอบประสิทธิภาพปลั๊กอินและปิดสิ่งที่ไม่จำเป็น"
+    ram: "&7• พิจารณาเพิ่มหน่วยความจำให้เซิร์ฟเวอร์"
+    cpu: "&7• พิจารณาอัปเกรด CPU ของเซิร์ฟเวอร์"
+    noRecommendations: "&7• ประสิทธิภาพเซิร์ฟเวอร์อยู่ในเกณฑ์ดี ไม่จำเป็นต้องปรับแต่ง"
+  export:
+    success: "&aส่งออกรายงานไปที่: &e%file%"
+    error: "&cส่งออกรายงานล้มเหลว: %error%"
+
+# ข้อความผิดพลาด
+error:
+  platformIncompatible: "&cMCBench Pro ต้องการ Paper/Pufferfish 1.21+ และ Java 21+"
+  javaVersion: "&cต้องใช้ Java 21+ ปัจจุบัน: %version%"
+  minecraftVersion: "&cต้องใช้ Minecraft 1.21+ ปัจจุบัน: %version%"
+  configLoad: "&cโหลดคอนฟิกล้มเหลว: %error%"
+  metricsUnavailable: "&cไม่สามารถเก็บข้อมูลตัวชี้วัดระบบได้: %error%"
+  workloadError: "&cเกิดข้อผิดพลาดการรันงานโหลด: %error%"
+  unexpectedError: "&cข้อผิดพลาดที่ไม่คาดคิด: %error%"
+  invalidBypass: "&cธง --bypass ใช้ได้กับ /mcbench confirm เท่านั้น"
+  saveAllFailed: "&cรันคำสั่ง save-all ล้มเหลว: %error%"
+  diagnosticsFailed: "&cสแกนการวินิจฉัยล้มเหลว: %error%"
+
+# ข้อความระบบ
+logging:
+  runStarted: "Benchmark run started"
+  runCancelled: "Benchmark run cancelled"
+  runAborted: "Benchmark run aborted"
+  runTimeout: "Benchmark run timed out"
+  runCompleted: "Benchmark run completed"
+  bypassUsed: "RAM requirement bypassed"
+  saveAllExecuted: "save-all command executed"
+
+system:
+  enabled: "&aMCBench Pro v%version% เปิดใช้งานสำเร็จ&r"
+  disabled: "&aMCBench Pro ปิดการใช้งาน&r"
+  reloaded: "&aโหลดการตั้งค่าใหม่แล้ว&r"
+  platformCheck: "&aการตรวจสอบความเข้ากันได้ผ่าน: Paper %paper%, Java %java%&r"

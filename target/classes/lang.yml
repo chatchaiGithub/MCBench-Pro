@@ -1,0 +1,229 @@
+# MCBench Pro Language File - English
+
+# Command Messages
+command:
+  noPermission: "&cYou do not have permission to use this command.&r"
+  consoleOnly: "&cThis command can only be executed from the console for security reasons.&r"
+  invalidSyntax: "&cInvalid syntax. Use: /mcbench <start|stop|help|confirm|cancel> [profile] [safe]&r"
+  unknownProfile: "&cUnknown profile: %profile%. Available profiles: minimum, normal, extreme&r"
+  benchmarkRunning: "&cA benchmark is already running. Use /mcbench stop to abort.&r"
+  noBenchmarkRunning: "&cNo benchmark is currently running.&r"
+  confirmationPending: "&cA benchmark confirmation is already pending.&r"
+  bypassHint: "&eUse '--bypass' flag to override RAM requirements if you understand the risks&r"
+  bypassWarning: "&c&lWARNING: Bypassing RAM requirements - proceeding with caution&r"
+
+# RAM Warning Messages (by profile)
+ramWarning:
+  minimum: "&c&lRAM WARNING: This profile requires %required% but JVM max is only %current%. Minimum profile needs 1GB+ for safe operation.&r"
+  normal: "&c&lRAM WARNING: This profile requires %required% but JVM max is only %current%. Normal profile needs 4GB+ for reliable performance.&r"
+  extreme: "&c&lRAM WARNING: This profile requires %required% but JVM max is only %current%. Extreme profile needs 10GB+ to prevent crashes.&r"
+  
+  help:
+    header: "&a&l=== MCBench Pro Help ==="
+    start: "&e/mcbench start <profile> [safe] &7- Start benchmark with specified profile"
+    stop: "&e/mcbench stop &7- Stop current benchmark"
+    confirm: "&e/mcbench confirm [--bypass] &7- Confirm pending benchmark (console only)"
+    cancel: "&e/mcbench cancel &7- Cancel pending benchmark (console only)"
+    check: "&e/mcbench check &7- Run server diagnostics and performance analysis"
+    profiles: "&7Available profiles: &eminimum&7, &enormal&7, &eextreme"
+    safeMode: "&7Add 'safe' to kick players and clear inventories before benchmark"
+    bypass: "&7Use '--bypass' to override RAM warnings (use with caution)"
+    
+  start:
+    warning: "&c&l⚠ WARNING ⚠&r"
+    warningDetails: "&cRunning MCBench Pro may cause temporary server instability and performance degradation.&r"
+    warningResponsibility: "&cThe plugin authors accept NO RESPONSIBILITY for any damage to game files, world state, or player data.&r"
+    warningProfile: "&7Profile: &e%profile%&r"
+    warningMode: "&7Mode: &e%mode%&r"
+    warningConfirm: "&eRun '/mcbench confirm' within 60 seconds to proceed, or '/mcbench cancel' to abort.&r"
+    
+    # New profile info display
+    profileInfo: "&a&l=== Profile Information ==="
+    profileName: "&7Profile: &e%profile%"
+    profileDuration: "&7Duration: &e%duration% seconds"
+    profileIntensity: "&7Intensity: &e%intensity%x"
+    profileTicks: "&7Tick Interval: &e%interval%"
+    profileLoops: "&7Loops per Tick: &e%loops%"
+    
+    # RAM requirement messages
+    ramInfo: "&a&l=== RAM Requirements ==="
+    ramRequired: "&7Required RAM: &e%required% MB"
+    ramCurrent: "&7Current JVM Max: &e%current% MB"
+    ramStatus: "&7Status: %status%"
+    ramOk: "&aRAM requirement satisfied"
+    ramInsufficient: "&cInsufficient RAM - use /mcbench confirm --bypass to override"
+    
+    # Player recommendation
+    playerRecommendation: "&a&l=== Player Recommendations ==="
+    suggestedPlayers: "&7Suggested max players for your RAM: &e%players%"
+    foliaWarning: "&7For 70+ players, Folia is strongly recommended"
+    
+    # Pre-run actions
+    autoSaveAll: "&7Running save-all before benchmark...&r"
+    autoSaveComplete: "&aWorld save completed at %timestamp%&r"
+    diagnosticsRunning: "&7Running pre-benchmark diagnostics...&r"
+    
+  saveAll:
+    executing: "&7Executing save-all before benchmark...&r"
+    completed: "&aSave-all completed successfully&r"
+    
+  confirm:
+    success: "&aBenchmark confirmed. Starting in 3 seconds...&r"
+    expired: "&cConfirmation expired. Benchmark cancelled.&r"
+    ramInsufficient: "&c&lRAM INSUFFICIENT: This profile requires %required% MB but JVM max is only %current% MB&r"
+    ramWarning: "&c&lWARNING: Running with insufficient RAM may cause server crashes or corruption!&r"
+    ramBypass: "&eUse '/mcbench confirm --bypass' if you understand the risks&r"
+    bypassUsed: "&c&lBYPASS: Administrator bypassed RAM requirement - proceeding with caution&r"
+    bypassLogged: "&7Bypass action logged to runs.log&r"
+    
+  cancel:
+    success: "&aBenchmark cancelled.&r"
+    
+  stop:
+    success: "&aBenchmark stopped. Generating summary...&r"
+    
+  diagnostics:
+    starting: "&7Starting comprehensive diagnostics scan...&r"
+    
+  # New check command messages
+  check:
+    running: "&aRunning server diagnostics...&r"
+    header: "&a&l=== Server Diagnostics Report ===&r"
+    timestamp: "&7Scan Date: &e%timestamp%&r"
+    jvmInfo: "&a&l--- JVM Memory Information ---"
+    jvmMax: "&7JVM Max Memory: &e%max% MB"
+    jvmUsed: "&7JVM In-use Memory: &e%used% MB"
+    jvmMin: "&7JVM Min/Base Allocation: &e%min% MB"
+    worldInfo: "&a&l--- World Statistics ---"
+    loadedChunks: "&7Total Loaded Chunks: &e%total%"
+    worldChunks: "&7  %world%: &e%chunks% chunks"
+    entityInfo: "&a&l--- Entity Analysis ---"
+    totalEntities: "&7Total Entities: &e%total%"
+    droppedItems: "&7Dropped Items: &e%items%"
+    hotspots: "&a&l--- Performance Hotspots ---"
+    hotspotChunk: "&7Chunk [%world%] %x%,%z%: &c%count% %type%"
+    noHotspots: "&7No performance hotspots detected"
+    recommendations: "&a&l--- Recommendations ---"
+    ramUpgrade: "&7• Consider upgrading RAM (current: %current% MB, recommended: 4+ GB)"
+    entityCleanup: "&7• Install entity cleanup plugin (Clearlagg, ServerBoost, Lagfixer, LagAssist, CMI)"
+    chunkReduction: "&7• Reduce loaded chunks by lowering view-distance"
+    hotspotCleanup: "&7• Clean up entity hotspots at listed coordinates"
+    allGood: "&7• Server configuration appears optimal"
+    export: "&aFull diagnostics report saved to: &e%file%"
+
+# Benchmark Messages
+benchmark:
+  starting: "&aMCBench Pro benchmark starting...&r"
+  safeModeKick: "MCBench Pro — server benchmarking in progress"
+  workloadStarted: "&eWorkload phase started. Profile: %profile%&r"
+  workloadCompleted: "&aWorkload phase completed. Beginning recovery measurement...&r"
+  recoveryCompleted: "&aRecovery completed. Generating final report...&r"
+  emergencyAbort: "&c&lEMERGENCY ABORT: MSPT exceeded %threshold%ms for %duration% seconds&r"
+  timeoutAbort: "&c&lTIMEOUT ABORT: Benchmark exceeded %timeout% seconds&r"
+  
+  status:
+    header: "&a&l=== Server Status ==="
+    os: "&7OS: &e%os%"
+    cpu: "&7CPU: &e%cpu%"
+    ram: "&7RAM: &e%used%/%max%"
+    serverLoader: "&7Server loader: &e%loader%"
+    version: "&7Version: &e%version%"
+    viaversion: "&7ViaVersion: &e%viaversion%"
+    countdown: "&7Confirmation expires in: &c%seconds% seconds"
+    
+  progress:
+    inLoad: "&7In load: TPS %tps% | MSPT %mspt%ms | RAM %ram%% | CPU %cpu%%"
+    progressUpdate: "&7Progress: %elapsed%/%total% seconds (%percentage%%) - TPS: %tps%"
+
+# Report Messages
+report:
+  header: "&a&l=== MCBench Pro Results ==="
+  profile: "&7Profile: &e%profile%"
+  mode: "&7Mode: &e%mode%"
+  duration: "&7Duration: &e%duration% seconds"
+  
+  baseline:
+    header: "&7&l--- Baseline Metrics ---"
+    tps: "&7TPS: &e%tps%"
+    mspt: "&7MSPT: &e%mspt%ms"
+    cpu: "&7CPU: &e%cpu%%"
+    ram: "&7RAM: &e%ram%%"
+    
+  afterload:
+    header: "&7&l--- After Load Metrics ---"
+    tps: "&7TPS: &e%tps%"
+    mspt: "&7MSPT: &e%mspt%ms"
+    cpu: "&7CPU: &e%cpu%%"
+    ram: "&7RAM: &e%ram%%"
+    
+  recovery:
+    time: "&7Recovery time: &e%time%"
+    score: "&7Final Score: &e%score%"
+    scoreBreakdown: "&a&l--- Score Breakdown ---"
+    profilePoints: "&7Profile Base Points: &e%points%"
+    recoverySeconds: "&7Recovery Seconds: &e%seconds%"
+    penaltyPerSecond: "&7Penalty per Second: &e%penalty%"
+    timePenalty: "&7Time Penalty: &e%totalPenalty%"
+    jvmMb: "&7JVM Max Memory: &e%jvmMb% MB"
+    jvmBonus: "&7JVM RAM Bonus: &e%bonus%"
+    formula: "&7Formula: max(0, %base% - %timePen%) + %jvmBon% = %final%"
+    benchmarkPoint: "&7Benchmark Point: &e%point% &7(CineBench style)"
+    bypassNote: "&c&lBYPASS: This run used RAM bypass - results may not be reliable"
+    
+  system:
+    header: "&7&l--- System Information ---"
+    java: "&7Java: &e%java%"
+    minecraft: "&7Minecraft: &e%minecraft%"
+    jvmRam: "&7JVM RAM: &e%jvm%"
+    hardware: "&7Hardware: &e%hardware%"
+    
+  analysis:
+    header: "&7&l--- Chunk & Entity Analysis ---"
+    chunks: "&7Loaded chunks: &e%chunks%"
+    entities: "&7Total entities: &e%entities%"
+    topChunks: "&7Top entity-dense chunks:"
+    
+  recommendations:
+    header: "&7&l--- Tuning Recommendations ---"
+    viewDistance: "&7• Consider reducing view-distance to %value%"
+    simulationDistance: "&7• Consider reducing simulation-distance to %value%"
+    entityCleanup: "&7• Enable entity cleanup plugins or settings"
+    mobSpawn: "&7• Reduce mob spawn rates in server.properties"
+    plugins: "&7• Review plugin performance and disable unnecessary ones"
+    ram: "&7• Consider increasing server RAM allocation"
+    cpu: "&7• Consider upgrading server CPU"
+    noRecommendations: "&7• Server performance is optimal, no recommendations needed"
+    
+  export:
+    success: "&aReport exported to: &e%file%"
+    error: "&cFailed to export report: %error%"
+
+# Error Messages
+error:
+  platformIncompatible: "&cMCBench Pro requires Paper/Pufferfish 1.21+ and Java 21+"
+  javaVersion: "&cJava 21+ required. Current: %version%"
+  minecraftVersion: "&cMinecraft 1.21+ required. Current: %version%"
+  configLoad: "&cFailed to load configuration: %error%"
+  metricsUnavailable: "&cUnable to collect system metrics: %error%"
+  workloadError: "&cWorkload execution error: %error%"
+  unexpectedError: "&cUnexpected error: %error%"
+  invalidBypass: "&c--bypass flag can only be used with /mcbench confirm"
+  saveAllFailed: "&cFailed to execute save-all: %error%"
+  diagnosticsFailed: "&cDiagnostics scan failed: %error%"
+  
+# Logging Messages (for runs.log)
+logging:
+  runStarted: "Benchmark run started"
+  runCancelled: "Benchmark run cancelled"
+  runAborted: "Benchmark run aborted"  
+  runTimeout: "Benchmark run timed out"
+  runCompleted: "Benchmark run completed"
+  bypassUsed: "RAM requirement bypassed"
+  saveAllExecuted: "save-all command executed"
+
+# System Messages
+system:
+  enabled: "&aMCBench Pro v%version% enabled successfully&r"
+  disabled: "&aMCBench Pro disabled&r"
+  reloaded: "&aConfiguration reloaded&r"
+  platformCheck: "&aCompatibility check passed: Paper %paper%, Java %java%&r"

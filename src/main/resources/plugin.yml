@@ -1,0 +1,19 @@
+name: MCBenchPro
+version: '${project.version}'
+main: online.chatchai.github.mcbench.Main
+api-version: '1.21'
+authors: [HoHighMa Studio]
+description: Professional-grade controlled server benchmark plugin
+website: https://github.com/chatchai-github/mcbenchpro
+
+commands:
+  mcbench:
+    description: MCBench Pro main command
+    usage: /mcbench <start|stop|help|confirm|cancel> [profile] [safe]
+    permission: mcbenchpro.command
+    aliases: [mstpbench]
+
+permissions:
+  mcbenchpro.command:
+    description: Permission to use MCBench Pro commands
+    default: op
